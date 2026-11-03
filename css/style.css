@@ -181,6 +181,7 @@ header {
   }
 }
 .header-content {
+  position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -283,9 +284,11 @@ nav {
 #menu-toggle {
   display: none;
 }
+/* Vue tablette et mobile */
 @media (max-width: 768px) {
   .header-content {
     flex-wrap: wrap;
+    top: 6px;
   }
   #menu-toggle {
     display: inline-flex;
@@ -294,18 +297,32 @@ nav {
     background: none;
     border: none;
     font-family: "Inter-regular";
-    font-size: 16px;
+    font-size: 20px;
     color: var(--teal-dark);
     cursor: pointer;
   }
   #menu {
-    display: none;
+    display: flex;
     width: 100%;
     flex-direction: column;
-    padding: 12px 0;
+    gap: 24px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    visibility: hidden;
+    transition:
+      max-height 1s ease,
+      padding 1s ease,
+      visibility 0s linear 1s;
   }
   header.open #menu {
-    display: flex;
+    max-height: 250px;
+    padding: 12px 0;
+    visibility: visible;
+    transition:
+      max-height 1s ease,
+      padding 1s ease,
+      visibility 0s;
   }
   #menu .separation {
     display: none;
