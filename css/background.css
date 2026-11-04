@@ -1,0 +1,109 @@
+/* ----------------------------------------------------------
+    BACKGROUND SITE
+---------------------------------------------------------- */
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  overflow-x: hidden;
+  background-color: var(--teal-deep);
+  background-image:
+    radial-gradient(
+      ellipse 60% 50% at 15% 10%,
+      rgba(47, 163, 150, 0.55) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 45% at 85% 20%,
+      rgba(143, 227, 207, 0.3) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 55% 55% at 80% 85%,
+      rgba(34, 109, 104, 0.8) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 40% 40% at 10% 90%,
+      rgba(233, 196, 106, 0.18) 0%,
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      var(--teal-deep) 0%,
+      var(--teal-dark) 45%,
+      var(--teal-mid) 100%
+    );
+  background-attachment: fixed;
+
+  /* Formes floues derrière le contenu */
+  &::before,
+  &::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(40px);
+  }
+  /* Grande forme en haut à gauche */
+  &::before {
+    top: -12%;
+    left: -8%;
+    width: 55vmax;
+    height: 55vmax;
+    background: linear-gradient(
+      145deg,
+      var(--teal-light) 0%,
+      var(--teal-mid) 55%,
+      transparent 100%
+    );
+    border-radius: 62% 38% 70% 30% / 45% 55% 45% 55%;
+    opacity: 0.55;
+    animation: morph-a 22s ease-in-out infinite alternate;
+  }
+  /* Forme en bas à droite, avec une touche chaude */
+  &::after {
+    bottom: -15%;
+    right: -10%;
+    width: 50vmax;
+    height: 50vmax;
+    background: linear-gradient(
+      210deg,
+      var(--mint) 0%,
+      var(--teal-light) 40%,
+      var(--coral) 130%
+    );
+    border-radius: 40% 60% 35% 65% / 60% 40% 60% 40%;
+    opacity: 0.35;
+    animation: morph-b 28s ease-in-out infinite alternate;
+  }
+}
+/* Animations des formes floues */
+@keyframes morph-a {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    border-radius: 62% 38% 70% 30% / 45% 55% 45% 55%;
+  }
+  100% {
+    transform: translate(6vw, 8vh) rotate(25deg) scale(1.08);
+    border-radius: 40% 60% 45% 55% / 60% 40% 60% 40%;
+  }
+}
+@keyframes morph-b {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    border-radius: 40% 60% 35% 65% / 60% 40% 60% 40%;
+  }
+  100% {
+    transform: translate(-7vw, -6vh) rotate(-20deg) scale(1.1);
+    border-radius: 60% 40% 65% 35% / 40% 60% 40% 60%;
+  }
+}
+/* Respect de la préférence "réduire les animations" */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
+}
