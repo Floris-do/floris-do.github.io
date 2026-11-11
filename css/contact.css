@@ -1,0 +1,245 @@
+.contact {
+  --error: #b42318;
+  --error-bg: #fdf0ee;
+
+  scroll-margin-top: 70px;
+  --field-gap: 0.3rem;
+  --err-h: 1rem; /* hauteur réservée au message d'erreur */
+
+  position: relative;
+  max-width: 40rem;
+  margin: 10vh auto;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  overflow: hidden;
+
+  /* panneau « verre dépoli », comme .legal-container */
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(16px) saturate(90%);
+  -webkit-backdrop-filter: blur(16px) saturate(90%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+#author {
+  scroll-margin-top: 165px;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .contact {
+    background: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.contact h2 {
+  margin-bottom: 0.75rem;
+}
+
+/* ----- Formulaire ----- */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--field-gap);
+}
+
+.contact-form {
+  display: grid;
+  gap: 0.25rem;
+
+  & label {
+    font-family: var(--text);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--teal-deep);
+  }
+
+  & input,
+  & textarea {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+
+    font-family: var(--text);
+    font-size: var(--text-size);
+    color: var(--field-fg);
+
+    background: var(--field-bg);
+    border: 1px solid var(--field-border);
+    border-radius: var(--field-radius);
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  & textarea {
+    min-height: 7.5rem;
+    line-height: 1.5;
+    resize: vertical;
+  }
+
+  & input:hover,
+  & textarea:hover {
+    border-color: var(--teal-mid);
+  }
+
+  & input:focus-visible,
+  & textarea:focus-visible {
+    background: #fff;
+    border-color: var(--teal-mid);
+    outline: 2px solid var(--teal-dark);
+    outline-offset: 2px;
+  }
+
+  /* état invalide (aria-invalid posé par contact.js) */
+  & [aria-invalid="true"] {
+    background: var(--error-bg);
+    border-color: var(--error);
+
+    &:focus-visible {
+      outline-color: var(--error);
+    }
+  }
+}
+
+.form-error {
+  margin: 0;
+  min-height: var(--err-h);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: var(--err-h);
+  color: var(--error);
+}
+
+/* ----- Mention RGPD ----- */
+.form-notice {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--teal-dark);
+
+  & a {
+    font-size: inherit;
+    color: var(--teal-deep);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+/* ----- Bouton : pilule, avec une flèche qui apparaît au survol ----- */
+.form-submit {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  height: 2.75rem;
+  padding: 0 1.5rem;
+
+  font-family: var(--text);
+  font-size: var(--text-size);
+  font-weight: 700;
+  color: var(--mint);
+  cursor: pointer;
+
+  background: var(--teal-deep);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(10, 42, 40, 0.25);
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  &::after {
+    content: "→";
+    max-width: 0;
+    margin-left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition:
+      max-width 0.4s ease,
+      margin-left 0.4s ease,
+      opacity 0.3s ease,
+      transform 0.4s ease;
+  }
+
+  &:hover:not(:disabled),
+  &:focus-visible {
+    background: var(--teal-mid);
+    transform: translateY(-1px);
+  }
+  &:hover:not(:disabled)::after,
+  &:focus-visible::after {
+    max-width: 1.5em;
+    margin-left: 10px;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--field-fg);
+    outline-offset: 3px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+/* ----- Message d'état (succès / erreur) ----- */
+.form-status {
+  margin: 0.25rem 0 0;
+  font-weight: 600;
+  line-height: 1.5;
+  &:not(:empty) {
+    padding: 0.75rem 1rem;
+    border-radius: var(--field-radius);
+  }
+}
+.form-status--success {
+  color: var(--teal-dark);
+  background: rgba(47, 163, 150, 0.15);
+}
+.form-status--error {
+  color: var(--error);
+  background: var(--error-bg);
+}
+.form-error i,
+.form-status i {
+  margin-right: 0.25em;
+}
+
+/* ----- Champ piège anti-robots : hors écran, mais pas en display:none ----- */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ----- Petits écrans ----- */
+@media (max-width: 480px) {
+  .form-submit {
+    justify-self: stretch;
+    justify-content: center;
+  }
+}
+
+/* ----- Respect de « réduire les animations » ----- */
+@media (prefers-reduced-motion: reduce) {
+  .contact-form input,
+  .contact-form textarea,
+  .form-submit,
+  .form-submit::after {
+    transition: none;
+  }
+}

@@ -27,14 +27,26 @@ html{
   --teal-dark: #18534f;
   --teal-mid: #226d68;
   --teal-light: #2fa396;
+  --menu-bg: #eef7f4;
+  --menu-fg: #0f3d38;
   --mint: #ecf8f6;
   --sand: #e9c46a;
   --coral: #e76f51;
+  --field-bg: #eef7f4;
+  --field-fg: #0f3d38;
+  --field-border: #5f8a84;
+  --field-radius: 12px;
+  --degrade: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
 
   --title : "Arsonica";
   --text: "Inter-regular";
 
   --text-size: 16px;
+
+  --menu-w: min(320px, 85vw);
+  --tab-h: 56px;
+  --tab-r: 22px; /* rayon des coins inversés */
+
 }
 
 /* ----------------------------------------------------------
@@ -48,10 +60,4 @@ p, a, li {
   font-family: var(--text);
   font-size: var(--text-size);
   color: #000;
-}
-
-
-
-main {
-  margin: auto 10vw;
 }
