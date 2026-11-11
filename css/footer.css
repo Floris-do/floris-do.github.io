@@ -15,10 +15,10 @@ footer {
   background-position: top;
 
   & a {
-    font-family: "Inter-regular";
-    font-size: 12px;
+    font-family: var(--font-text);
+    font-size: var(--text-size-xs);
     color: var(--teal-light);
     text-decoration: none;
-    margin-bottom: 12px;
+    margin-bottom: var(--space-3);
   }
 }

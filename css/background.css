@@ -10,22 +10,22 @@ body {
   background-image:
     radial-gradient(
       ellipse 60% 50% at 15% 10%,
-      rgba(47, 163, 150, 0.55) 0%,
+      color-mix(in srgb, var(--teal-light) 55%, transparent) 0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse 50% 45% at 85% 20%,
-      rgba(143, 227, 207, 0.3) 0%,
+      color-mix(in srgb, var(--mint) 25%, transparent) 0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse 55% 55% at 80% 85%,
-      rgba(34, 109, 104, 0.8) 0%,
+      color-mix(in srgb, var(--teal-mid) 80%, transparent) 0%,
       transparent 65%
     ),
     radial-gradient(
       ellipse 40% 40% at 10% 90%,
-      rgba(233, 196, 106, 0.18) 0%,
+      color-mix(in srgb, var(--orange) 12%, transparent) 0%,
       transparent 60%
     ),
     linear-gradient(
@@ -71,7 +71,7 @@ body {
       210deg,
       var(--mint) 0%,
       var(--teal-light) 40%,
-      var(--coral) 130%
+      var(--orange) 130%
     );
     border-radius: 40% 60% 35% 65% / 60% 40% 60% 40%;
     opacity: 0.35;

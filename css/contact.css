@@ -1,40 +1,39 @@
-.contact {
-  --error: #b42318;
-  --error-bg: #fdf0ee;
+/* ----------------------------------------------------------
+    FORMULAIRE DE CONTACT
+    Couleurs, espacements et arrondis : voir :root dans style.css
+---------------------------------------------------------- */
+#author {
+  scroll-margin-top: 165px; /* Décale le défilement de la page vers le haut quand on clique sur le lien de la nav*/
+}
 
-  scroll-margin-top: 70px;
-  --field-gap: 0.3rem;
+.contact {
+  --field-gap: var(--space-1);
   --err-h: 1rem; /* hauteur réservée au message d'erreur */
 
   position: relative;
   max-width: 40rem;
-  margin: 10vh auto;
-  padding: clamp(1.25rem, 3vw, 2rem);
+  margin: var(--section-gap) auto;
+  padding: var(--panel-padding);
   overflow: hidden;
 
   /* panneau « verre dépoli », comme .legal-container */
-  background: rgba(255, 255, 255, 0.68);
-  backdrop-filter: blur(16px) saturate(90%);
-  -webkit-backdrop-filter: blur(16px) saturate(90%);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 24px;
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-panel);
 }
-
-#author {
-  scroll-margin-top: 165px;
-}
-
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+@supports not (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
   .contact {
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--glass-bg-fallback);
   }
 }
 
 .contact h2 {
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-3);
 }
 
 /* ----- Formulaire ----- */
@@ -46,11 +45,11 @@
 
 .contact-form {
   display: grid;
-  gap: 0.25rem;
+  gap: var(--space-1);
 
   & label {
-    font-family: var(--text);
-    font-size: 0.95rem;
+    font-family: var(--font-text);
+    font-size: var(--text-size);
     font-weight: 700;
     color: var(--teal-deep);
   }
@@ -58,15 +57,15 @@
   & input,
   & textarea {
     width: 100%;
-    padding: 0.6rem 0.9rem;
+    padding: var(--space-2) var(--space-3);
 
-    font-family: var(--text);
+    font-family: var(--font-text);
     font-size: var(--text-size);
-    color: var(--field-fg);
+    color: var(--teal-deep);
 
-    background: var(--field-bg);
-    border: 1px solid var(--field-border);
-    border-radius: var(--field-radius);
+    background: var(--mint);
+    border: 1px solid var(--teal-mid);
+    border-radius: var(--radius-m);
     transition:
       border-color 0.2s ease,
       background 0.2s ease,
@@ -81,19 +80,20 @@
 
   & input:hover,
   & textarea:hover {
-    border-color: var(--teal-mid);
+    border-color: var(--teal-dark);
   }
 
   & input:focus-visible,
   & textarea:focus-visible {
-    background: #fff;
-    border-color: var(--teal-mid);
+    background: var(--white);
+    border-color: var(--teal-dark);
     outline: 2px solid var(--teal-dark);
     outline-offset: 2px;
   }
 
   /* état invalide (aria-invalid posé par contact.js) */
-  & [aria-invalid="true"] {
+  & input[aria-invalid="true"],
+  & textarea[aria-invalid="true"] {
     background: var(--error-bg);
     border-color: var(--error);
 
@@ -106,7 +106,7 @@
 .form-error {
   margin: 0;
   min-height: var(--err-h);
-  font-size: 0.85rem;
+  font-size: var(--text-size-s);
   font-weight: 600;
   line-height: var(--err-h);
   color: var(--error);
@@ -114,8 +114,8 @@
 
 /* ----- Mention RGPD ----- */
 .form-notice {
-  margin: 0 0 0.5rem;
-  font-size: 0.85rem;
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-size-s);
   line-height: 1.4;
   color: var(--teal-dark);
 
@@ -133,9 +133,9 @@
   display: inline-flex;
   align-items: center;
   height: 2.75rem;
-  padding: 0 1.5rem;
+  padding: 0 var(--space-5);
 
-  font-family: var(--text);
+  font-family: var(--font-text);
   font-size: var(--text-size);
   font-weight: 700;
   color: var(--mint);
@@ -143,12 +143,13 @@
 
   background: var(--teal-deep);
   border: 0;
-  border-radius: 999px;
-  box-shadow: 0 6px 16px rgba(10, 42, 40, 0.25);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-float);
   transition:
     background 0.3s ease,
     transform 0.3s ease,
     box-shadow 0.3s ease;
+
   &::after {
     content: "→";
     max-width: 0;
@@ -172,7 +173,7 @@
   &:hover:not(:disabled)::after,
   &:focus-visible::after {
     max-width: 1.5em;
-    margin-left: 10px;
+    margin-left: var(--space-2);
     opacity: 1;
     transform: translateX(0);
   }
@@ -182,7 +183,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--field-fg);
+    outline: 2px solid var(--teal-deep);
     outline-offset: 3px;
   }
 
@@ -195,17 +196,18 @@
 
 /* ----- Message d'état (succès / erreur) ----- */
 .form-status {
-  margin: 0.25rem 0 0;
+  margin: var(--space-1) 0 0;
   font-weight: 600;
   line-height: 1.5;
+
   &:not(:empty) {
-    padding: 0.75rem 1rem;
-    border-radius: var(--field-radius);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-m);
   }
 }
 .form-status--success {
   color: var(--teal-dark);
-  background: rgba(47, 163, 150, 0.15);
+  background: color-mix(in srgb, var(--teal-light) 15%, transparent);
 }
 .form-status--error {
   color: var(--error);
