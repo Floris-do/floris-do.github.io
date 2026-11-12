@@ -1,0 +1,68 @@
+[
+  {
+    "nom": "Nom du projet 01",
+    "description": "Deux ou trois phrases : le contexte, le problème à résoudre, votre contribution et ce que vous avez appris en le construisant.",
+    "technos": ["React", "Node.js", "PostgreSQL"],
+    "role": "[Votre rôle]",
+    "statut": "[En ligne / en cours]",
+    "image": "",
+    "alt": "",
+    "detail": "#",
+    "code": "#"
+  },
+  {
+    "nom": "Nom du projet 02",
+    "description": "Deux ou trois phrases : le contexte, le problème à résoudre, votre contribution et ce que vous avez appris en le construisant.",
+    "technos": ["Vue.js", "Firebase"],
+    "role": "[Votre rôle]",
+    "statut": "[En ligne / en cours]",
+    "image": "",
+    "alt": "",
+    "detail": "#",
+    "code": "#"
+  },
+  {
+    "nom": "Nom du projet 03",
+    "description": "Deux ou trois phrases : le contexte, le problème à résoudre, votre contribution et ce que vous avez appris en le construisant.",
+    "technos": ["HTML", "CSS", "JavaScript"],
+    "role": "[Votre rôle]",
+    "statut": "[En ligne / en cours]",
+    "image": "",
+    "alt": "",
+    "detail": "#",
+    "code": "#"
+  },
+  {
+    "nom": "Nom du projet 04",
+    "description": "Deux ou trois phrases : le contexte, le problème à résoudre, votre contribution et ce que vous avez appris en le construisant.",
+    "technos": ["Next.js", "Tailwind"],
+    "role": "[Votre rôle]",
+    "statut": "[En ligne / en cours]",
+    "image": "",
+    "alt": "",
+    "detail": "#",
+    "code": "#"
+  },
+  {
+    "nom": "Nom du projet 05",
+    "description": "Deux ou trois phrases : le contexte, le problème à résoudre, votre contribution et ce que vous avez appris en le construisant.",
+    "technos": ["PHP", "MySQL"],
+    "role": "[Votre rôle]",
+    "statut": "[En ligne / en cours]",
+    "image": "",
+    "alt": "",
+    "detail": "#",
+    "code": "#"
+  },
+  {
+    "nom": "Nom du projet 06",
+    "description": "Deux ou trois phrases : le contexte, le problème à résoudre, votre contribution et ce que vous avez appris en le construisant.",
+    "technos": ["TypeScript", "Express"],
+    "role": "[Votre rôle]",
+    "statut": "[En ligne / en cours]",
+    "image": "",
+    "alt": "",
+    "detail": "#",
+    "code": "#"
+  }
+]

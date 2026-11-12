@@ -118,3 +118,7 @@ li {
 main {
   margin: var(--page-margin-top) var(--page-margin-x) 0;
 }
+
+#projets, #author {
+  scroll-margin-top: 165px; /* Décale le défilement de la page vers le haut quand on clique sur le lien de la nav*/
+}

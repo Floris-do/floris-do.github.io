@@ -15,6 +15,9 @@
     <script src="js/menu-header.js" defer></script>
     <!--Footer-->
     <link rel="stylesheet" href="css/footer.css">
+    <!--Projets-->
+    <link rel="stylesheet" href="css/projet.css">
+    <script src="js/projet.js" defer></script>
     <!--Contact + EmailJS-->
     <link rel="stylesheet" href="css/contact.css">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
@@ -30,7 +33,7 @@
         <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu <i class="fa-solid fa-bars" aria-hidden="true"></i></button>
 
         <nav id="menu">
-          <a href="">Découvrir mes projets</a>
+          <a href="#projets">Découvrir mes projets</a>
           <a href="">Accueil</a>
           <div class="separation"></div>
           <a href="#author">Contact</a>
@@ -38,6 +41,59 @@
       </div>
     </header>
     <main>
+      <section id="projets" class="projets">
+        <div class="projets-entete">
+          <h2>Mes projets</h2>
+          <p>Choisissez un onglet pour découvrir un projet.</p>
+        </div>
+
+        <div class="projets-fenetre">
+          <div class="projets-onglets" role="tablist" aria-label="Choix du projet"></div>
+
+          <div class="projets-panneau" id="projets-panneau" role="tabpanel" tabindex="0">
+            <div class="projets-contenu" hidden>
+              <div class="projets-apercu">
+                <img class="projets-image" alt="" loading="lazy" hidden />
+                <p class="projets-apercu-vide">Capture d'écran du projet</p>
+              </div>
+
+              <div class="projets-infos">
+                <span class="projets-compteur"><span data-champ="numero"></span> / <span data-champ="total"></span></span>
+                <h3 data-champ="nom"></h3>
+                <p class="projets-description" data-champ="description"></p>
+
+                <ul class="projets-technos"></ul>
+
+                <dl class="projets-meta">
+                  <div class="projets-meta-ligne" data-ligne="role">
+                    <dt>Rôle</dt>
+                    <dd data-champ="role"></dd>
+                  </div>
+                  <div class="projets-meta-ligne" data-ligne="statut">
+                    <dt>Statut</dt>
+                    <dd data-champ="statut"></dd>
+                  </div>
+                </dl>
+
+                <div class="projets-boutons">
+                  <a class="projets-bouton projets-bouton--principal" data-champ="detail" href="./projet/index.html">Détail du site <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                  <a class="projets-bouton projets-bouton--secondaire" data-champ="code" href="#" target="_blank" rel="noopener noreferrer">Voir le code</a>
+                </div>
+              </div>
+            </div>
+
+            <p class="projets-erreur" role="alert" hidden>Impossible de charger les projets pour le moment.</p>
+          </div>
+        </div>
+
+        <template id="projets-modele-onglet">
+          <button class="projets-onglet" type="button" role="tab" aria-controls="projets-panneau"></button>
+        </template>
+        <template id="projets-modele-techno">
+          <li></li>
+        </template>
+      </section>
+
       <section id="contact" class="contact">
         <h2>Me contacter</h2>
 
@@ -79,7 +135,7 @@
         </form>
       </section>
     </main>
-    
+
     <footer>
       <a href="mentions-legales.html">Mentions légales</a>
     </footer>

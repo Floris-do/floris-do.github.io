@@ -2,10 +2,6 @@
     FORMULAIRE DE CONTACT
     Couleurs, espacements et arrondis : voir :root dans style.css
 ---------------------------------------------------------- */
-#author {
-  scroll-margin-top: 165px; /* Décale le défilement de la page vers le haut quand on clique sur le lien de la nav*/
-}
-
 .contact {
   --field-gap: var(--space-1);
   --err-h: 1rem; /* hauteur réservée au message d'erreur */
