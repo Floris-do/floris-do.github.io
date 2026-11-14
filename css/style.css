@@ -1,8 +1,5 @@
 /* ==========================================================
    STYLE COMMUN
-   Tout ce qui est partagé entre les pages se règle ici :
-   couleurs, polices, tailles de texte, espacements, arrondis, ombres.
-   Les autres fichiers CSS n'utilisent que ces variables.
 ========================================================== */
 
 :root {
@@ -17,6 +14,10 @@
   --orange: #f89b29;
   --pink: #ff0f7b;
   --degrade: linear-gradient(-45deg, var(--orange) 0%, var(--pink) 100%);
+
+  /* ----- Couleurs : accents froids (arrière-plan) ----- */
+  --violet: #8a4fff;
+  --blue: #3b6cf6;
 
   /* ----- Couleurs : neutres et états ----- */
   --white: #fff;

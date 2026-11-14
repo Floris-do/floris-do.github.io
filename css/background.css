@@ -8,26 +8,49 @@ body {
   overflow-x: hidden;
   background-color: var(--teal-deep);
   background-image:
+    /* Haut gauche : vert clair */
     radial-gradient(
       ellipse 60% 50% at 15% 10%,
       color-mix(in srgb, var(--teal-light) 55%, transparent) 0%,
       transparent 60%
     ),
+    /* Haut droite : reflet menthe */
     radial-gradient(
       ellipse 50% 45% at 85% 20%,
       color-mix(in srgb, var(--mint) 25%, transparent) 0%,
       transparent 60%
     ),
+    /* Bas droite : vert moyen */
     radial-gradient(
       ellipse 55% 55% at 80% 85%,
       color-mix(in srgb, var(--teal-mid) 80%, transparent) 0%,
       transparent 65%
     ),
+    /* Bas gauche : touche orange, plus large */
     radial-gradient(
-      ellipse 40% 40% at 10% 90%,
-      color-mix(in srgb, var(--orange) 12%, transparent) 0%,
-      transparent 60%
+      ellipse 55% 50% at 6% 82%,
+      color-mix(in srgb, var(--orange) 34%, transparent) 0%,
+      transparent 65%
     ),
+    /* Milieu gauche : touche rose */
+    radial-gradient(
+      ellipse 35% 35% at 4% 48%,
+      color-mix(in srgb, var(--pink) 22%, transparent) 0%,
+      transparent 65%
+    ),
+    /* Haut droite : touche rose */
+    radial-gradient(
+      ellipse 38% 34% at 93% 6%,
+      color-mix(in srgb, var(--pink) 26%, transparent) 0%,
+      transparent 65%
+    ),
+    /* Droite : touche jaune-orangé */
+    radial-gradient(
+      ellipse 34% 38% at 97% 58%,
+      color-mix(in srgb, var(--orange) 26%, transparent) 0%,
+      transparent 65%
+    ),
+    /* Base : du vert foncé au vert moyen */
     linear-gradient(
       135deg,
       var(--teal-deep) 0%,
@@ -45,7 +68,7 @@ body {
     pointer-events: none;
     filter: blur(40px);
   }
-  /* Grande forme en haut à gauche */
+  /* Grande forme verte en haut à gauche */
   &::before {
     top: -12%;
     left: -8%;
@@ -61,20 +84,20 @@ body {
     opacity: 0.55;
     animation: morph-a 22s ease-in-out infinite alternate;
   }
-  /* Forme en bas à droite, avec une touche chaude */
+  /* Forme en bas au centre : la touche chaude (rose et orange) */
   &::after {
-    bottom: -15%;
-    right: -10%;
-    width: 50vmax;
-    height: 50vmax;
+    bottom: -22%;
+    right: 22%;
+    width: 46vmax;
+    height: 46vmax;
     background: linear-gradient(
       210deg,
-      var(--mint) 0%,
-      var(--teal-light) 40%,
-      var(--orange) 130%
+      var(--pink) 0%,
+      var(--orange) 60%,
+      transparent 120%
     );
     border-radius: 40% 60% 35% 65% / 60% 40% 60% 40%;
-    opacity: 0.35;
+    opacity: 0.32;
     animation: morph-b 28s ease-in-out infinite alternate;
   }
 }
