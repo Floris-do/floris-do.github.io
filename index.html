@@ -15,6 +15,8 @@
     <script src="js/menu-header.js" defer></script>
     <!--Footer-->
     <link rel="stylesheet" href="css/footer.css">
+    <!-- Présentation -->
+     <link rel="stylesheet" href="css/presentation.css">
     <!--Projets-->
     <link rel="stylesheet" href="css/projet.css">
     <script src="js/projet.js" defer></script>
@@ -34,20 +36,81 @@
 
         <nav id="menu">
           <a href="#projets">Découvrir mes projets</a>
-          <a href="">Accueil</a>
+          <a href="#presentation">Accueil</a>
           <div class="separation"></div>
-          <a href="#author">Contact</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
+
     <main>
+      <section id="presentation" class="presentation panneau-verre" aria-labelledby="presentation-titre">
+        <!-- Colonne de gauche : photo, titre h1, liens -->
+        <div class="presentation-profil">
+          <div class="presentation-cadre">
+            <!-- Remplacez le fichier par votre photo -->
+            <img src="" alt="Portrait de Floris Doreau">
+          </div>
+
+          <h1 id="presentation-titre">Floris Doreau</h1>
+
+          <ul class="contact-liens">
+            <li><a href="https://github.com/floris-do" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/floris-doreau-4893433b9" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a href="mailto:floris.doreau@gmail.com" aria-label="Envoyer un e-mail"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+
+        <!-- Colonne de droite : contenu -->
+        <div class="presentation-contenu">
+          <p class="presentation-accroche">Développeur web junior, passionné par les technologies modernes et l'expérience utilisateur.</p>
+
+          <div class="presentation-bloc">
+            <h2>Qui suis-je ?</h2>
+            <p>Après un bac <a href="https://www.onisep.fr/formation/apres-la-3-la-voie-generale-et-technologique/qu-est-ce-que-la-voie-generale-et-technologique/la-voie-technologique-en-premiere-et-en-terminale/le-bac-sti2d-sciences-et-technologies-de-l-industrie-et-du-developpement-durable" target="_blank">STI2D</a> spécialité <a href="https://www.onisep.fr/ressources/univers-formation/formations/lycees/bac-techno-sti2d-sciences-et-technologies-de-l-industrie-et-du-developpement-durable-enseignement-specifique-systemes-d-information-et-numerique" target="_blank">SIN</a>, j'ai choisi de poursuivre en <a href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/but-metiers-du-multimedia-et-de-l-internet-parcours-creation-numerique" target="_blank">BUT MMI</a> spécialité <a href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/but-metiers-du-multimedia-et-de-l-internet-parcours-developpement-web-et-dispositifs-interactifs" target="_blank">DWDI</a> à Dijon pour approfondir mon intérêt pour le numérique et le développement web.</p>
+            <p>Je suis à la recherche d'un stage qui me permettra de gagner en expérience dans le développement web.</p>
+          </div>
+
+          <div class="presentation-bloc">
+            <h2>Compétences</h2>
+            <ul class="pastilles">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Git</li>
+              <li>GitHub</li>
+            </ul>
+          </div>
+
+          <dl class="encadre-infos">
+            <div>
+              <dt>Poste recherché</dt>
+              <dd>Développeur web front-end, full-stack. Ouvert à d'autres proposition de poste.</dd>
+            </div>
+            <div>
+              <dt>Disponibilité</dt>
+              <dd>Durée de 8 à 12 semaines à partir du 25 janvier 2027 jusqu'au 2 avril 2027.</dd>
+            </div>
+            <div>
+              <dt>Localisation</dt>
+              <dd>Dijon et ses alentours, Lyon, Macon</dd>
+            </div>
+          </dl>
+
+          <div class="boutons">
+            <a class="bouton bouton--principal" href="#projets">Découvrir mes projets <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a class="bouton bouton--secondaire" href="#contact">Me contacter</a>
+          </div>
+        </div>
+      </section>
+
       <section id="projets" class="projets">
-        <div class="projets-entete">
+        <div class="section-entete panneau-verre">
           <h2>Mes projets</h2>
           <p>Choisissez un onglet pour découvrir un projet.</p>
         </div>
 
-        <div class="projets-fenetre">
+        <div class="projets-fenetre panneau-verre">
           <div class="projets-onglets" role="tablist" aria-label="Choix du projet"></div>
 
           <div class="projets-panneau" id="projets-panneau" role="tabpanel" tabindex="0">
@@ -62,9 +125,9 @@
                 <h3 data-champ="nom"></h3>
                 <p class="projets-description" data-champ="description"></p>
 
-                <ul class="projets-technos"></ul>
+                <ul class="pastilles projets-technos"></ul>
 
-                <dl class="projets-meta">
+                <dl class="encadre-infos projets-meta">
                   <div class="projets-meta-ligne" data-ligne="role">
                     <dt>Rôle</dt>
                     <dd data-champ="role"></dd>
@@ -75,9 +138,9 @@
                   </div>
                 </dl>
 
-                <div class="projets-boutons">
-                  <a class="projets-bouton projets-bouton--principal" data-champ="detail" href="./projet/index.html">Détail du site <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                  <a class="projets-bouton projets-bouton--secondaire" data-champ="code" href="#" target="_blank" rel="noopener noreferrer">Voir le code</a>
+                <div class="boutons projets-boutons">
+                  <a class="bouton bouton--principal" data-champ="detail" href="projet.html">Détail du site <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                  <a class="bouton bouton--secondaire" data-champ="code" href="#" target="_blank" rel="noopener noreferrer">Voir le code</a>
                 </div>
               </div>
             </div>
@@ -95,9 +158,17 @@
       </section>
 
       <section id="contact" class="contact">
-        <h2>Me contacter</h2>
+        <div class="section-entete panneau-verre">
+          <h2>Me contacter</h2>
+          <p>Une question, une proposition de projet ? Écrivez-moi.</p>
+          <ul class="contact-liens">
+            <li><a href="https://github.com/floris-do" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/floris-doreau-4893433b9" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a href="mailto:floris.doreau@gmail.com" aria-label="Envoyer un e-mail"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
 
-        <form id="contact-form" class="contact-form" novalidate>
+        <form id="contact-form" class="contact-form panneau-verre" novalidate>
           <div class="form-group">
             <label for="author">Auteur du message</label>
             <input type="text" id="author" name="author" placeholder="Votre nom/prénom ou entreprise" autocomplete="name" maxlength="100" required>

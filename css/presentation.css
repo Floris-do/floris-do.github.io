@@ -1,0 +1,151 @@
+/* ==========================================================
+   PRÉSENTATION
+========================================================== */
+.presentation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5) clamp(2rem, 5vw, 4rem);
+  min-height: 60vh;
+  min-height: 60dvh;
+  margin-bottom: var(--section-gap);
+  padding: var(--panel-padding-xl);
+}
+
+/* ----------------------------------------------------------
+    COLONNE DE GAUCHE : photo, titre h1, liens
+---------------------------------------------------------- */
+.presentation-profil {
+  flex: 0 1 460px;
+  min-width: 0;
+  max-width: 100%;
+  margin-inline: auto; /* centré quand la colonne passe seule sur sa ligne (petit écran) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+
+  & h1 {
+    font-size: var(--title-size-section);
+    line-height: 1.05;
+    text-align: center;
+  }
+}
+
+.presentation-cadre {
+  width: 100%;
+  aspect-ratio: 46 / 40;
+  overflow: hidden;
+  background: var(--mint);
+  border: 1px solid var(--teal-mid);
+  border-radius: var(--radius-l);
+
+  & img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Grand écran : les liens passent à droite de la photo et du titre, en colonne, centrés verticalement */
+@media (max-width: 1357px) {
+  .presentation-profil {
+    flex: 0 1 auto;
+    width: fit-content;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 460px) 48px; /* photo + colonne des liens, sans espace en trop */
+    justify-content: center;
+    align-items: center;
+    column-gap: var(--space-5);
+    row-gap: var(--space-5);
+    margin-inline: auto;
+  }
+
+  .presentation-cadre {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .presentation-profil h1 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .contact-liens {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .presentation-profil {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 460px;
+  }
+
+  .contact-liens {
+    grid-column: 2;
+    grid-row: 1;
+    flex-direction: row;
+  }
+}
+
+/* ----------------------------------------------------------
+    COLONNE DE DROITE : contenu
+---------------------------------------------------------- */
+.presentation-contenu {
+  flex: 1 1 28rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-5);
+}
+
+/* Phrase d'accroche */
+.presentation-accroche {
+  padding-bottom: var(--space-4);
+  font-size: var(--text-size-xl);
+  line-height: 1.4;
+  color: var(--teal-deep);
+  border-bottom: 1px solid color-mix(in srgb, var(--teal-mid) 35%, transparent);
+}
+
+/* Blocs « Qui suis-je ? » et « Compétences » */
+.presentation-bloc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+
+  & h2 {
+    font-size: var(--title-size-sub);
+    line-height: 1.1;
+  }
+
+  & p {
+    line-height: 1.65;
+    color: var(--teal-dark);
+
+    & a {
+      all: unset;
+      cursor: pointer;
+      font-weight: 600;
+    }
+  }
+}
+
+/* ----------------------------------------------------------
+    MOUVEMENT RÉDUIT
+---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .presentation-liens a {
+    transition: none;
+  }
+
+  .presentation-liens a:hover {
+    transform: none;
+  }
+}

@@ -1,38 +1,17 @@
 /* ----------------------------------------------------------
     FORMULAIRE DE CONTACT
-    Couleurs, espacements et arrondis : voir :root dans style.css
 ---------------------------------------------------------- */
 .contact {
   --field-gap: var(--space-1);
   --err-h: 1rem; /* hauteur réservée au message d'erreur */
 
-  position: relative;
-  max-width: 40rem;
-  margin: var(--section-gap) auto;
-  padding: var(--panel-padding);
-  overflow: hidden;
-
-  /* panneau « verre dépoli », comme .legal-container */
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-l);
-  box-shadow: var(--shadow-panel);
-}
-@supports not (
-  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
-) {
-  .contact {
-    background: var(--glass-bg-fallback);
-  }
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--section-gap); /* pas de marge en bas : le footer gère l'espace */
 }
 
-.contact h2 {
-  margin-bottom: var(--space-3);
-}
-
-/* ----- Formulaire ----- */
+/* ----- Formulaire (panneau en verre) ----- */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -40,8 +19,12 @@
 }
 
 .contact-form {
+  /* position + overflow : le champ piège .hp reste dans le panneau */
+  position: relative;
+  overflow: hidden;
   display: grid;
   gap: var(--space-1);
+  padding: var(--panel-padding);
 
   & label {
     font-family: var(--font-text);
@@ -192,6 +175,9 @@
 
 /* ----- Message d'état (succès / erreur) ----- */
 .form-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: var(--space-1) 0 0;
   font-weight: 600;
   line-height: 1.5;

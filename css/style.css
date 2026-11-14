@@ -46,6 +46,9 @@
   --text-size-s: 0.875rem;  /* 14px : petits textes, messages d'erreur */
   --text-size: 1rem;        /* 16px : texte courant */
   --text-size-l: 1.25rem;   /* 20px : bouton menu, titre du sommaire */
+  --text-size-xl: 1.625rem; /* 26px : phrase d'accroche de la présentation */
+  --title-size-section: clamp(2rem, 5vw, 3.25rem); /* 32 à 52px : titre des sections (Mes projets, Me contacter, h1 de la présentation) */
+  --title-size-sub: 1.75rem; /* 28px : sous-titres h2 à l'intérieur d'un panneau */
 
   /* ----- Espacements (padding, margin, gap) ----- */
   --space-1: 0.25rem; /* 4px */
@@ -58,6 +61,7 @@
   --page-margin-x: 8vw;                        /* marges latérales du contenu */
   --page-margin-top: 14vh;                     /* espace sous le header */
   --section-gap: 10vh;                         /* espace autour d'une section (ex. formulaire) */
+  --panel-padding-xl: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 3.5vw, 3rem); /* grand panneau (présentation) */
   --panel-padding: clamp(1.25rem, 3vw, 2rem);  /* intérieur d'un panneau compact */
   --panel-padding-lg: 4vh 4vw;                 /* intérieur d'un panneau de texte long */
 
@@ -117,9 +121,230 @@ li {
     MISE EN PAGE
 ---------------------------------------------------------- */
 main {
+  position: relative; /* nécessaire pour que le z-index s'applique */
+  z-index: 1; /* le contenu passe devant le footer, qui remonte derrière la dernière section */
   margin: var(--page-margin-top) var(--page-margin-x) 0;
 }
 
-#projets, #author {
-  scroll-margin-top: 165px; /* Décale le défilement de la page vers le haut quand on clique sur le lien de la nav*/
+#presentation, #projets, #contact {
+  scroll-margin-top: 70px; /* Décale le défilement de la page vers le haut quand on clique sur le lien de la nav*/
+}
+
+/* ----------------------------------------------------------
+    PANNEAU EN VERRE DÉPOLI
+---------------------------------------------------------- */
+.panneau-verre {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-panel);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .panneau-verre {
+    background: var(--glass-bg-fallback);
+  }
+}
+
+/* ----------------------------------------------------------
+    BANDEAU DE TITRE DE SECTION
+---------------------------------------------------------- */
+.section-entete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-5);
+  padding: var(--panel-padding);
+
+  & h1,
+  & h2 {
+    font-size: var(--title-size-section);
+    line-height: 1.05;
+  }
+
+  & p {
+    line-height: 1.6;
+    color: var(--teal-dark);
+  }
+}
+
+/* Variante : le texte passe sous le titre au lieu d'être à droite */
+.section-entete--empile {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+/* ----------------------------------------------------------
+    PASTILLES
+---------------------------------------------------------- */
+.pastilles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+
+  & li {
+    cursor: default;
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--text-size-s);
+    color: var(--teal-deep);
+    background: color-mix(in srgb, var(--mint) 70%, transparent);
+    border: 1px solid var(--teal-mid);
+    border-radius: var(--radius-pill);
+  }
+}
+
+/* ----------------------------------------------------------
+    ENCADRÉ D'INFOS
+---------------------------------------------------------- */
+.encadre-infos {
+  cursor: default;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-1) var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-text);
+  font-size: var(--text-size-s);
+  background: color-mix(in srgb, var(--mint) 85%, transparent);
+  border: 1px solid var(--teal-mid);
+  border-radius: var(--radius-l);
+
+  & > div {
+    display: contents;
+  }
+
+  & dt {
+    color: var(--teal-dark);
+  }
+
+  & dd {
+    color: var(--teal-deep);
+  }
+}
+
+/* ----------------------------------------------------------
+    BOUTONS
+---------------------------------------------------------- */
+.boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-1);
+}
+
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: 0 var(--space-5);
+  font-family: var(--font-text);
+  font-size: var(--text-size-s);
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-float);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--teal-dark);
+    outline-offset: 3px;
+  }
+}
+
+.bouton--principal {
+  color: var(--mint);
+  background: var(--teal-deep);
+  border: 1.5px solid var(--teal-deep);
+
+  &:hover {
+    background: var(--teal-dark);
+    border-color: var(--teal-dark);
+  }
+
+  & i {
+    transition: transform 0.2s ease;
+  }
+
+  &:hover i {
+    transform: translateX(3px);
+  }
+}
+
+.bouton--secondaire {
+  color: var(--teal-dark);
+  background: color-mix(in srgb, var(--white) 40%, transparent);
+  border: 1.5px solid var(--teal-mid);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bouton,
+  .bouton i {
+    transition: none;
+  }
+
+  .bouton:hover,
+  .bouton--principal:hover i {
+    transform: none;
+  }
+}
+
+/* Liens : GitHub, LinkedIn, e-mail */
+.contact-liens {
+  display: flex;
+  gap: var(--space-3);
+  list-style: none;
+
+  & a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: var(--teal-dark);
+    text-decoration: none;
+    background: color-mix(in srgb, var(--white) 40%, transparent);
+    border: 1.5px solid var(--teal-mid);
+    border-radius: var(--radius-pill);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover {
+      color: var(--mint);
+      background: var(--teal-deep);
+      border-color: var(--teal-deep);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-float);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--teal-dark);
+      outline-offset: 3px;
+    }
+  }
+
+  & i {
+    font-size: var(--text-size-l);
+  }
 }
