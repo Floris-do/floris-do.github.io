@@ -1,13 +1,6 @@
 /* ==========================================================
    PROJETS
-   Section « Mes projets » : en-tête, navigation par onglets,
-   aperçu et détail du projet affiché.
-   N'utilise que les variables définies dans style.css.
 ========================================================== */
-
-/* ----------------------------------------------------------
-    SECTION
----------------------------------------------------------- */
 .projets {
   display: flex;
   flex-direction: column;
@@ -20,49 +13,6 @@
 }
 
 /* ----------------------------------------------------------
-    PANNEAUX EN VERRE (en-tête + fenêtre des projets)
----------------------------------------------------------- */
-.projets-entete,
-.projets-fenetre {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-l);
-  box-shadow: var(--shadow-panel);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
-}
-
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .projets-entete,
-  .projets-fenetre {
-    background: var(--glass-bg-fallback);
-  }
-}
-
-/* ----------------------------------------------------------
-    EN-TÊTE
----------------------------------------------------------- */
-.projets-entete {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--space-4) var(--space-5);
-  padding: var(--panel-padding);
-
-  & h2 {
-    font-size: clamp(2rem, 5vw, 3.25rem);
-    line-height: 1.05;
-  }
-
-  & p {
-    max-width: 26rem;
-    line-height: 1.6;
-    color: var(--teal-dark);
-  }
-}
-
-/* ----------------------------------------------------------
     FENÊTRE
 ---------------------------------------------------------- */
 .projets-fenetre {
@@ -71,8 +21,6 @@
 
 /* ----------------------------------------------------------
     NAVIGATION PAR ONGLETS
-    Les onglets touchent les bords du panneau (aucun écart
-    à gauche, à droite ni en haut) et se partagent la largeur.
 ---------------------------------------------------------- */
 .projets-onglets {
   display: flex;
@@ -99,9 +47,7 @@
     background: color-mix(in srgb, var(--white) 30%, transparent);
   }
 
-  /* Onglet actif : fond blanc, légère ombre uniquement sur les côtés
-   pour qu'il paraisse au-dessus des autres onglets (sans déborder
-   sur la partie qui affiche le projet). */
+  /* Onglet actif */
   &[aria-selected="true"] {
     position: relative;
     z-index: 1;
@@ -214,117 +160,6 @@
   color: var(--teal-dark);
 }
 
-/* Technologies */
-.projets-technos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  list-style: none;
-
-  & li {
-    cursor: default;
-    padding: var(--space-1) var(--space-3);
-    font-size: var(--text-size-s);
-    color: var(--teal-deep);
-    background: color-mix(in srgb, var(--mint) 70%, transparent);
-    border: 1px solid var(--teal-mid);
-    border-radius: var(--radius-pill);
-  }
-}
-
-/* Rôle / statut */
-.projets-meta {
-  cursor: default;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-1) var(--space-4);
-  padding: var(--space-3) var(--space-4);
-  font-family: var(--font-text);
-  font-size: var(--text-size-s);
-  background: color-mix(in srgb, var(--mint) 85%, transparent);
-  border: 1px solid var(--teal-mid);
-  border-radius: var(--radius-l);
-}
-
-/* Chaque ligne (dt + dd) est un groupe sans boîte propre :
-   le terme et sa valeur s'alignent directement dans la grille. */
-.projets-meta-ligne {
-  display: contents;
-}
-
-.projets-meta dt {
-  color: var(--teal-dark);
-}
-
-.projets-meta dd {
-  color: var(--teal-deep);
-}
-
-/* ----------------------------------------------------------
-    BOUTONS
----------------------------------------------------------- */
-.projets-boutons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  padding-top: var(--space-1);
-}
-
-.projets-bouton {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  min-height: 48px;
-  padding: 0 var(--space-5);
-  font-family: var(--font-text);
-  font-size: var(--text-size-s);
-  text-decoration: none;
-  border-radius: var(--radius-pill);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-float);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--teal-dark);
-    outline-offset: 3px;
-  }
-}
-
-.projets-bouton--principal {
-  color: var(--mint);
-  background: var(--teal-deep);
-  border: 1.5px solid var(--teal-deep);
-
-  &:hover {
-    background: var(--teal-dark);
-    border-color: var(--teal-dark);
-  }
-
-  & i {
-    transition: transform 0.2s ease;
-  }
-
-  &:hover i {
-    transform: translateX(3px);
-  }
-}
-
-.projets-bouton--secondaire {
-  color: var(--teal-dark);
-  background: color-mix(in srgb, var(--white) 40%, transparent);
-  border: 1.5px solid var(--teal-mid);
-}
-
 /* ----------------------------------------------------------
     MESSAGE D'ERREUR (si le fichier JSON ne se charge pas)
 ---------------------------------------------------------- */
@@ -341,15 +176,11 @@
   }
 
   .projets-onglet,
-  .projets-bouton,
-  .projets-bouton i,
   .projets-apercu img {
     transition: none;
   }
 
-  .projets-bouton:hover,
-  .projets-apercu:hover img,
-  .projets-bouton--principal:hover i {
+  .projets-apercu:hover img {
     transform: none;
   }
 }
