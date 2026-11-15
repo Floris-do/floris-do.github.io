@@ -64,6 +64,11 @@
   --panel-padding-xl: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 3.5vw, 3rem); /* grand panneau (présentation) */
   --panel-padding: clamp(1.25rem, 3vw, 2rem);  /* intérieur d'un panneau compact */
   --panel-padding-lg: 4vh 4vw;                 /* intérieur d'un panneau de texte long */
+  @media (max-width: 768px) {                  /* Mobile : marges latérales réduites */
+    --page-margin-x: 4vw;
+  }
+  --footer-hauteur: 250px; /* hauteur du dégradé du footer */
+  --footer-espace: 70px;   /* espace entre le bas de la dernière section et le bas de la page */
 
   /* ----- Arrondis ----- */
   --radius-m: 12px;     /* champs, cartes, liens du sommaire */
@@ -120,10 +125,21 @@ li {
 /* ----------------------------------------------------------
     MISE EN PAGE
 ---------------------------------------------------------- */
+/* Footer toujours en bas de page */
+body {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto; /* le contenu prend tout l'espace restant */
+}
+footer {
+  flex-shrink: 0;
+}
 main {
   position: relative; /* nécessaire pour que le z-index s'applique */
   z-index: 1; /* le contenu passe devant le footer, qui remonte derrière la dernière section */
-  margin: var(--page-margin-top) var(--page-margin-x) 0;
+  margin: var(--page-margin-top) var(--page-margin-x) calc(var(--footer-espace) - var(--footer-hauteur));
 }
 
 #presentation, #projets, #contact {

@@ -2,14 +2,12 @@
     FOOTER
 ---------------------------------------------------------- */
 footer {
-  --footer-hauteur: 250px; /* hauteur du dégradé */
-  --footer-espace: 70px;   /* espace entre le bas de la dernière section et le bas de la page */
-
   z-index: 0;
   position: relative;
   width: 100%;
   height: var(--footer-hauteur);
-  margin-top: calc(var(--footer-espace) - var(--footer-hauteur));
+  margin-top: auto; /* pousse le footer en bas de la page */
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: flex-end;

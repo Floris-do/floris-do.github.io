@@ -129,3 +129,18 @@ body {
     animation: none;
   }
 }
+
+@media (max-width: 768px), (hover: none) {
+  body {
+    background-attachment: scroll;
+  }
+  /* Formes floues animées : désactivées sur mobile */
+  body::before,
+  body::after {
+    display: none;
+  }
+  /* Verre dépoli sans flou : fond plus opaque pour rester lisible */
+  :root {
+    --glass-bg: var(--glass-bg-fallback);
+  }
+}
