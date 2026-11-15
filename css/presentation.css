@@ -78,6 +78,10 @@
     grid-row: 1 / span 2;
     flex-direction: column;
   }
+
+  .contact .contact-liens {
+    flex-direction: row;
+  }
 }
 @media (max-width: 768px) {
   .presentation-profil {
