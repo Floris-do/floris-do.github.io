@@ -59,7 +59,7 @@
 
   /* ----- Mise en page ----- */
   --page-margin-x: 8vw;                        /* marges latérales du contenu */
-  --page-margin-top: 14vh;                     /* espace sous le header */
+  --page-margin-top: 10vh;                     /* espace sous le header */
   --section-gap: 10vh;                         /* espace autour d'une section (ex. formulaire) */
   --panel-padding-xl: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 3.5vw, 3rem); /* grand panneau (présentation) */
   --panel-padding: clamp(1.25rem, 3vw, 2rem);  /* intérieur d'un panneau compact */
