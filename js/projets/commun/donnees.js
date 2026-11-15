@@ -1,16 +1,10 @@
 /* ==========================================================
    DONNÉES COMMUNES
-   Charge et met en cache la liste des projets pour la page courante.
 ========================================================== */
 
 const URL_JSON = new URL("/./data/liste-projets.json", import.meta.url);
 let chargementEnCours = null;
 
-/**
- * Charge les projets une seule fois dans le document courant.
- * Les deux pages partagent cette fonction, mais chaque page HTML
- * possède son propre contexte JavaScript et effectue donc son chargement.
- */
 export function chargerProjets() {
   if (!chargementEnCours) {
     chargementEnCours = fetch(URL_JSON)

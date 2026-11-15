@@ -1,6 +1,5 @@
 /* ==========================================================
    ENTÊTE DU PROJET DÉTAILLÉ
-   Remplit le titre, le résumé, les métadonnées et les liens.
 ========================================================== */
 
 import { texte, deuxChiffres } from "../commun/outils.js";

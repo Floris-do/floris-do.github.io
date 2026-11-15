@@ -1,6 +1,5 @@
 /* ==========================================================
    CARROUSEL DU PROJET
-   Défilement natif scroll-snap, flèches, points et clavier.
 ========================================================== */
 
 import { texte } from "../commun/outils.js";

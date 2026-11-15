@@ -1,6 +1,5 @@
 /* ==========================================================
    APERÇU D'UN PROJET
-   Remplit la carte de projet affichée sur la page d'accueil.
 ========================================================== */
 
 import { texte, deuxChiffres, lienProjet } from "../commun/outils.js";

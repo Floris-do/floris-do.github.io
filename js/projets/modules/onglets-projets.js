@@ -1,6 +1,5 @@
 /* ==========================================================
    ONGLET DES PROJETS
-   Création des onglets, sélection et navigation au clavier.
 ========================================================== */
 
 export function initialiserOnglets({ projets, conteneur, panneau, modele, onSelection }) {

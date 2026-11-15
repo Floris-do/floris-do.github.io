@@ -1,6 +1,5 @@
 /* ==========================================================
    NAVIGATION ENTRE LES PROJETS
-   Construit la liste « Continuer la visite » et gère l'historique.
 ========================================================== */
 
 import { deuxChiffres, lienProjet } from "../commun/outils.js";
