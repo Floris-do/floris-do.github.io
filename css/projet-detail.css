@@ -326,6 +326,55 @@
 }
 
 /* ----------------------------------------------------------
+    CARROUSEL SUR MOBILE
+---------------------------------------------------------- */
+@media (max-width: 768px) {
+  .detail-carrousel {
+    position: relative; /* repère pour placer les flèches dans le pied du panneau */
+  }
+
+  /* La visionneuse ne sert plus de repère : les flèches se placent par rapport au panneau */
+  .detail-visionneuse {
+    position: static;
+  }
+
+  .detail-fleche {
+    top: auto;
+    bottom: var(--panel-padding);
+    translate: none;
+    width: 40px;
+    height: 40px;
+    background: color-mix(in srgb, var(--white) 40%, transparent);
+
+    & .icone {
+      width: 1.4em;
+      height: 1.4em;
+    }
+  }
+
+  .detail-fleche--prec {
+    left: var(--panel-padding);
+  }
+
+  .detail-fleche--suiv {
+    right: var(--panel-padding);
+  }
+
+  /* Pied : points et compteur centrés entre les deux flèches */
+  .detail-carrousel-pied {
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: calc(var(--space-4) + 40px); /* hauteur des flèches + espace au-dessus */
+    padding-inline: calc(40px + var(--space-3));
+  }
+
+  .detail-points {
+    justify-content: center;
+  }
+}
+
+/* ----------------------------------------------------------
     TEXTE : une rangée par section (titre à gauche, paragraphes à droite)
 ---------------------------------------------------------- */
 .detail-texte {
