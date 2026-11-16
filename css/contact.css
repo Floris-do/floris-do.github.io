@@ -195,8 +195,7 @@
   color: var(--error);
   background: var(--error-bg);
 }
-.form-error i,
-.form-status i {
+.form-error img, .form-status img {
   margin-right: 0.25em;
 }
 

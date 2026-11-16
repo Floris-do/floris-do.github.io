@@ -6,7 +6,6 @@
     <title>Projet | Portfolio Floris Doreau</title>
     <meta name="description" content="Détail d'un projet du portfolio de Floris Doreau.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <!--Background-->
     <link rel="stylesheet" href="css/background.css">
@@ -26,7 +25,7 @@
           <img src="assets/images/logo.svg" alt="Portfolio de Floris Doreau">
         </a>
 
-        <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu <i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+        <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu <img class="icone" src="assets/icons/menu.svg" alt=""></button>
 
         <nav id="menu">
           <a href="index.html#projets">Découvrir mes projets</a>
@@ -43,14 +42,18 @@
         <div class="detail-entete panneau-verre">
           <!-- Colonne de gauche : titre, résumé, boutons -->
           <div class="detail-entete-texte">
-            <a class="detail-retour" href="index.html#projets"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Tous les projets</a>
+            <a class="detail-retour" href="index.html#projets">
+              <img class="icone icone--base fleche-gauche" src="assets/icons/fleches/fleche-g/fleche-g.svg" alt="">
+              <img class="icone icone--survol fleche-gauche" src="assets/icons/fleches/fleche-g/fleche-g-dark.svg" alt="">
+              Tous les projets
+            </a>
 
             <p class="detail-compteur"><span data-champ="numero"></span> / <span data-champ="total"></span></p>
             <h1 data-champ="nom" tabindex="-1"></h1>
             <p class="detail-description" data-champ="description"></p>
 
             <div class="boutons">
-              <a class="bouton bouton--principal" data-champ="site" href="#" target="_blank" rel="noopener noreferrer">Voir le site <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              <a class="bouton bouton--principal" data-champ="site" href="#" target="_blank" rel="noopener noreferrer">Voir le site <img class="icone" src="assets/icons/new-onglet.svg" alt=""></a>
               <a class="bouton bouton--secondaire" data-champ="code" href="#" target="_blank" rel="noopener noreferrer">Voir le code</a>
             </div>
           </div>
@@ -76,8 +79,14 @@
         <section class="detail-carrousel panneau-verre" aria-roledescription="carrousel" aria-label="Captures du projet" hidden>
           <div class="detail-visionneuse">
             <div class="detail-piste" tabindex="0" aria-label="Images du projet. Flèches gauche et droite pour naviguer."></div>
-            <button class="detail-fleche detail-fleche--prec" type="button" aria-label="Image précédente"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-            <button class="detail-fleche detail-fleche--suiv" type="button" aria-label="Image suivante"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+            <button class="detail-fleche detail-fleche--prec" type="button" aria-label="Image précédente">
+                <img class="icone icone--base" src="assets/icons/chevrons/chevron-g/chevron-g.svg" alt=""/>
+                <img class="icone icone--survol" src="assets/icons/chevrons/chevron-g/chevron-g-light.svg" alt=""/>
+            </button>
+            <button class="detail-fleche detail-fleche--suiv" type="button" aria-label="Image suivante">
+                <img class="icone icone--base" src="assets/icons/chevrons/chevron-d/chevron-d.svg" alt=""/>
+                <img class="icone icone--survol" src="assets/icons/chevrons/chevron-d/chevron-d-light.svg" alt=""/>
+            </button>
           </div>
           <div class="detail-carrousel-pied">
             <div class="detail-points"></div>
@@ -92,7 +101,7 @@
         <details class="detail-suite panneau-verre">
           <summary class="detail-suite-entete">
             <h2>Continuer la visite</h2>
-            <span class="bouton bouton--principal">Choisir un autre projet <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+            <span class="bouton bouton--principal">Choisir un autre projet <img class="icone" src="assets/icons/chevrons/chevron-b.svg" alt=""></span>
           </summary>
           <ul id="detail-suite-liste" class="detail-suite-liste"></ul>
         </details>
@@ -103,7 +112,7 @@
         <h1 data-champ="titre">Projet introuvable</h1>
         <p data-champ="message"></p>
         <div class="boutons">
-          <a class="bouton bouton--principal" href="index.html#projets">Retour aux projets <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <a class="bouton bouton--principal" href="index.html#projets">Retour aux projets <img class="icone" src="assets/icons/fleches/fleche-d.svg" alt=""></a>
         </div>
       </section>
 

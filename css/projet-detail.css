@@ -91,8 +91,19 @@
   color: var(--teal-dark);
   text-decoration: none;
 
+  & .icone--survol {
+    display: none;
+  }
+
   &:hover {
     color: var(--teal-deep);
+
+    & .icone--base {
+      display: none;
+    }
+    & .icone--survol {
+      display: inline-block;
+    }
   }
 
   &:focus-visible {
@@ -245,6 +256,18 @@
     outline: 2px solid var(--teal-dark);
     outline-offset: 3px;
   }
+  
+  & .icone--survol {
+    display: none;
+  }
+
+  &:hover .icone--base {
+    display: none;
+  }
+
+  &:hover .icone--survol {
+    display: inline-block;
+  }
 }
 
 .detail-fleche--prec {
@@ -376,7 +399,7 @@
     line-height: 1.1;
   }
 
-  & .bouton i {
+  & .bouton img {
     transition:
       transform 0.2s ease,
       rotate 0.2s ease;
@@ -393,7 +416,7 @@
 }
 
 /* La flèche se retourne quand la liste est ouverte */
-.detail-suite[open] .detail-suite-entete .bouton i {
+.detail-suite[open] .detail-suite-entete .bouton img {
   rotate: 180deg;
 }
 
@@ -496,7 +519,7 @@
   .detail-fleche,
   .detail-point,
   .detail-suite-lien,
-  .detail-suite-entete .bouton i {
+  .detail-suite-entete .bouton img {
     transition: none;
   }
 

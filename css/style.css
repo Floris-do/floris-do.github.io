@@ -4,11 +4,11 @@
 
 :root {
   /* ----- Couleurs : les verts, du plus foncé au plus clair ----- */
-  --teal-deep: #0a2a28;  /* fond du site, titres, texte sur fond clair, bouton principal */
-  --teal-dark: #18534f;  /* textes secondaires, liens du header, survols */
-  --teal-mid: #226d68;   /* bordures des champs, dégradés d'arrière-plan */
+  --teal-deep: #0a2a28; /* fond du site, titres, texte sur fond clair, bouton principal */
+  --teal-dark: #18534f; /* textes secondaires, liens du header, survols */
+  --teal-mid: #226d68; /* bordures des champs, dégradés d'arrière-plan */
   --teal-light: #2fa396; /* liens du footer, formes d'arrière-plan */
-  --mint: #ecf8f6;       /* fonds clairs (cartes, menu, champs) et texte sur fond foncé */
+  --mint: #ecf8f6; /* fonds clairs (cartes, menu, champs) et texte sur fond foncé */
 
   /* ----- Couleurs : accents chauds ----- */
   --orange: #f89b29;
@@ -32,9 +32,7 @@
   --glass-blur: blur(16px) saturate(90%);
 
   /* ----- Ombres ----- */
-  --shadow-panel:
-    0 8px 32px color-mix(in srgb, var(--black) 12%, transparent),
-    inset 0 1px 0 color-mix(in srgb, var(--white) 50%, transparent);
+  --shadow-panel: 0 8px 32px color-mix(in srgb, var(--black) 12%, transparent), inset 0 1px 0 color-mix(in srgb, var(--white) 50%, transparent);
   --shadow-float: 0 8px 20px color-mix(in srgb, var(--black) 20%, transparent);
 
   /* ----- Polices ----- */
@@ -42,37 +40,38 @@
   --font-text: "Inter-regular";
 
   /* ----- Tailles de texte ----- */
-  --text-size-xs: 0.75rem;  /* 12px : footer */
-  --text-size-s: 0.875rem;  /* 14px : petits textes, messages d'erreur */
-  --text-size: 1rem;        /* 16px : texte courant */
-  --text-size-l: 1.25rem;   /* 20px : bouton menu, titre du sommaire */
+  --text-size-xs: 0.75rem; /* 12px : footer */
+  --text-size-s: 0.875rem; /* 14px : petits textes, messages d'erreur */
+  --text-size: 1rem; /* 16px : texte courant */
+  --text-size-l: 1.25rem; /* 20px : bouton menu, titre du sommaire */
   --text-size-xl: 1.625rem; /* 26px : phrase d'accroche de la présentation */
   --title-size-section: clamp(2rem, 5vw, 3.25rem); /* 32 à 52px : titre des sections (Mes projets, Me contacter, h1 de la présentation) */
   --title-size-sub: 1.75rem; /* 28px : sous-titres h2 à l'intérieur d'un panneau */
 
   /* ----- Espacements (padding, margin, gap) ----- */
   --space-1: 0.25rem; /* 4px */
-  --space-2: 0.5rem;  /* 8px */
+  --space-2: 0.5rem; /* 8px */
   --space-3: 0.75rem; /* 12px */
-  --space-4: 1rem;    /* 16px */
-  --space-5: 1.5rem;  /* 24px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.5rem; /* 24px */
 
   /* ----- Mise en page ----- */
-  --page-margin-x: 8vw;                        /* marges latérales du contenu */
-  --page-margin-top: 10vh;                     /* espace sous le header */
-  --section-gap: 10vh;                         /* espace autour d'une section (ex. formulaire) */
+  --page-margin-x: 8vw; /* marges latérales du contenu */
+  --page-margin-top: 10vh; /* espace sous le header */
+  --section-gap: 10vh; /* espace autour d'une section (ex. formulaire) */
   --panel-padding-xl: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 3.5vw, 3rem); /* grand panneau (présentation) */
-  --panel-padding: clamp(1.25rem, 3vw, 2rem);  /* intérieur d'un panneau compact */
-  --panel-padding-lg: 4vh 4vw;                 /* intérieur d'un panneau de texte long */
-  @media (max-width: 768px) {                  /* Mobile : marges latérales réduites */
+  --panel-padding: clamp(1.25rem, 3vw, 2rem); /* intérieur d'un panneau compact */
+  --panel-padding-lg: 4vh 4vw; /* intérieur d'un panneau de texte long */
+  @media (max-width: 768px) {
+    /* Mobile : marges latérales réduites */
     --page-margin-x: 4vw;
   }
   --footer-hauteur: 250px; /* hauteur du dégradé du footer */
-  --footer-espace: 70px;   /* espace entre le bas de la dernière section et le bas de la page */
+  --footer-espace: 70px; /* espace entre le bas de la dernière section et le bas de la page */
 
   /* ----- Arrondis ----- */
-  --radius-m: 12px;     /* champs, cartes, liens du sommaire */
-  --radius-l: 24px;     /* panneaux, header, bouton du header */
+  --radius-m: 12px; /* champs, cartes, liens du sommaire */
+  --radius-l: 24px; /* panneaux, header, bouton du header */
   --radius-pill: 999px; /* boutons en forme de pilule */
 
   /* ----- Menu latéral (page mentions légales) ----- */
@@ -123,6 +122,21 @@ li {
 }
 
 /* ----------------------------------------------------------
+    ICONES
+---------------------------------------------------------- */
+.icone {
+  width: 1.7em;
+  height: 1.7em;
+  flex-shrink: 0;
+  vertical-align: -0.125em;
+}
+.fleche-droite,
+.fleche-gauche {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+/* ----------------------------------------------------------
     MISE EN PAGE
 ---------------------------------------------------------- */
 /* Footer toujours en bas de page */
@@ -142,7 +156,9 @@ main {
   margin: var(--page-margin-top) var(--page-margin-x) calc(var(--footer-espace) - var(--footer-hauteur));
 }
 
-#presentation, #projets, #contact {
+#presentation,
+#projets,
+#contact {
   scroll-margin-top: 70px; /* Décale le défilement de la page vers le haut quand on clique sur le lien de la nav*/
 }
 
@@ -292,11 +308,11 @@ main {
     border-color: var(--teal-dark);
   }
 
-  & i {
+  & img {
     transition: transform 0.2s ease;
   }
 
-  &:hover i {
+  &:hover img {
     transform: translateX(3px);
   }
 }
@@ -309,12 +325,12 @@ main {
 
 @media (prefers-reduced-motion: reduce) {
   .bouton,
-  .bouton i {
+  .bouton img {
     transition: none;
   }
 
   .bouton:hover,
-  .bouton--principal:hover i {
+  .bouton--principal:hover img {
     transform: none;
   }
 }
@@ -359,8 +375,15 @@ main {
       outline-offset: 3px;
     }
   }
+  & .icone--survol {
+    display: none;
+  }
 
-  & i {
-    font-size: var(--text-size-l);
+  & a:hover .icone--base {
+    display: none;
+  }
+
+  & a:hover .icone--survol {
+    display: inline-block;
   }
 }

@@ -9,10 +9,10 @@ export function renderMessage(el, text, iconClass) {
 
   if (!text) return;
 
-  const icon = document.createElement("i");
-
-  icon.className = iconClass;
-  icon.setAttribute("aria-hidden", "true");
+  const icon = document.createElement("img");
+  icon.src = iconClass;
+  icon.alt = "";
+  icon.className = "icone";
 
   el.append(icon, " " + text);
 }

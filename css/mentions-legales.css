@@ -166,8 +166,9 @@ dialog.sidebar[open]::backdrop {
   border: 0;
   border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
 
-  & i {
-    font-size: var(--text-size-l);
+  & img {
+    width: var(--text-size-l);
+    height: var(--text-size-l);
   }
 }
 
