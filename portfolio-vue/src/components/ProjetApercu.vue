@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import PastillesListe from '@/components/PastillesListe.vue'
+import EncadreInfos from '@/components/EncadreInfos.vue'
 import flecheDroite from '@/assets/icons/fleches/fleche-d.svg'
 
 const props = defineProps({
@@ -22,7 +23,13 @@ function deuxChiffres(nombre) {
   return String(nombre).padStart(2, '0')
 }
 
-const aUneMeta = computed(() => Boolean(props.projet.role || props.projet.statut))
+const lignesMeta = computed(() => {
+  const lignes = [
+    { libelle: 'Role', valeur: props.projet.role },
+    { libelle: 'Statut', valeur: props.projet.statut },
+  ]
+  return lignes.filter((ligne) => ligne.valeur)
+})
 </script>
 
 
@@ -40,16 +47,7 @@ const aUneMeta = computed(() => Boolean(props.projet.role || props.projet.statut
 
       <PastillesListe v-if="projet.technos?.length" :elements="projet.technos" />
 
-      <dl v-if="aUneMeta" class="encadre-infos">
-        <div v-if="projet.role">
-          <dt>Rôle</dt>
-          <dd>{{ projet.role }}</dd>
-        </div>
-        <div v-if="projet.statut">
-          <dt>Statut</dt>
-          <dd>{{ projet.statut }}</dd>
-        </div>
-      </dl>
+      <EncadreInfos v-if="lignesMeta.length" :lignes="lignesMeta"/>
 
       <div class="boutons">
         <RouterLink class="bouton bouton--principal" :to="`/projet/${projet.id}`">
