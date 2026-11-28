@@ -25,7 +25,7 @@ function deuxChiffres(nombre) {
 
 const lignesMeta = computed(() => {
   const lignes = [
-    { libelle: 'Role', valeur: props.projet.role },
+    { libelle: 'Rôle', valeur: props.projet.role },
     { libelle: 'Statut', valeur: props.projet.statut },
   ]
   return lignes.filter((ligne) => ligne.valeur)
