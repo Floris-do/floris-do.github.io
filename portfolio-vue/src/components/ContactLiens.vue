@@ -33,17 +33,17 @@ const liens = [
 
 <template>
   <ul class="contact-liens">
-   <li v-for="lien in liens" :key="lien.nom">
-    <a
-      :href="lien.url"
-      :aria-label="lien.nom"
-      :target="lien.externe ? '_blank' : null"
-      :rel="lien.externe ? 'noopener noreferrer' : null"
-    >
-      <img class="icone icone--base" :src="lien.icone" alt="" />
-      <img class="icone icone--survol" :src="lien.iconeSurvol" alt="" />
-    </a>
-   </li> 
+    <li v-for="lien in liens" :key="lien.nom">
+      <a
+        :href="lien.url"
+        :aria-label="lien.nom"
+        :target="lien.externe ? '_blank' : null"
+        :rel="lien.externe ? 'noopener noreferrer' : null"
+      >
+        <img class="icone icone--base" :src="lien.icone" alt="" />
+        <img class="icone icone--survol" :src="lien.iconeSurvol" alt="" />
+      </a>
+    </li>
   </ul>
 </template>
 

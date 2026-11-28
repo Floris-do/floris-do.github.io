@@ -1,0 +1,268 @@
+[
+  {
+    "id": "nom-du-projet-01",
+    "nom": "Nom du projet 01",
+    "description": "Deux ou trois phrases : le contexte, le problème à résoudre, votre contribution et ce que vous avez appris en le construisant.",
+    "technos": ["React", "Node.js", "PostgreSQL"],
+    "role": "[Votre rôle]",
+    "statut": "[En ligne / en cours]",
+    "image": "",
+    "alt": "",
+    "site": "#",
+    "code": "#",
+    "sections": [
+      {
+        "titre": "Le projet",
+        "paragraphes": [
+          "Présentez ici le projet : son contexte, l'idée de départ ou la commande, et l'objectif visé.",
+          "Précisez à qui il s'adresse et quelles contraintes vous aviez (délai, outils imposés, travail en équipe…)."
+        ]
+      },
+      {
+        "titre": "Ma démarche",
+        "paragraphes": [
+          "Expliquez comment vous vous y êtes pris : maquettes, choix techniques, organisation du travail.",
+          "Décrivez les difficultés rencontrées et la manière dont vous les avez résolues."
+        ]
+      },
+      {
+        "titre": "Le résultat",
+        "paragraphes": [
+          "Décrivez ce qui a été livré, ce qui fonctionne et ce que vous avez appris en le construisant."
+        ]
+      }
+    ],
+    "images": [
+      {
+        "src": "assets/images/projets/nom-du-projet-01/capture-01.jpg",
+        "alt": "Page d'accueil du projet 01",
+        "legende": "Page d'accueil"
+      },
+      {
+        "src": "assets/images/projets/nom-du-projet-01/capture-02.jpg",
+        "alt": "Page de détail du projet 01",
+        "legende": "Page de détail"
+      },
+      {
+        "src": "assets/images/projets/nom-du-projet-01/capture-03.jpg",
+        "alt": "Version mobile du projet 01",
+        "legende": "Version mobile"
+      }
+    ]
+  },
+  {
+    "id": "nom-du-projet-02",
+    "nom": "Nom du projet 02",
+    "description": "Deux ou trois phrases : le contexte, le problème à résoudre, votre contribution et ce que vous avez appris en le construisant.",
+    "technos": [
+      "Vue.js",
+      "Firebase"
+    ],
+    "role": "[Votre rôle]",
+    "statut": "[En ligne / en cours]",
+    "image": "",
+    "alt": "",
+    "site": "#",
+    "code": "#",
+    "sections": [
+      {
+        "titre": "Le projet",
+        "paragraphes": [
+          "Présentez ici le projet : son contexte, l'idée de départ et l'objectif visé."
+        ]
+      },
+      {
+        "titre": "Ma démarche",
+        "paragraphes": [
+          "Expliquez comment vous vous y êtes pris : choix techniques, organisation, difficultés."
+        ]
+      },
+      {
+        "titre": "Le résultat",
+        "paragraphes": [
+          "Décrivez ce qui a été livré et ce que vous avez appris."
+        ]
+      }
+    ],
+    "images": [
+      {
+        "src": "assets/images/projets/nom-du-projet-02/capture-01.jpg",
+        "alt": "Page d'accueil du projet 02",
+        "legende": "Page d'accueil"
+      },
+      {
+        "src": "assets/images/projets/nom-du-projet-02/capture-02.jpg",
+        "alt": "Tableau de bord du projet 02",
+        "legende": "Tableau de bord"
+      }
+    ]
+  },
+  {
+    "id": "nom-du-projet-03",
+    "nom": "Nom du projet 03",
+    "description": "Deux ou trois phrases : le contexte, le problème à résoudre, votre contribution et ce que vous avez appris en le construisant.",
+    "technos": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "role": "[Votre rôle]",
+    "statut": "[En ligne / en cours]",
+    "image": "",
+    "alt": "",
+    "site": "",
+    "code": "#",
+    "sections": [
+      {
+        "titre": "Le projet",
+        "paragraphes": [
+          "Présentez ici le projet : son contexte, l'idée de départ et l'objectif visé."
+        ]
+      },
+      {
+        "titre": "Ma démarche",
+        "paragraphes": [
+          "Expliquez comment vous vous y êtes pris : choix techniques, organisation, difficultés."
+        ]
+      },
+      {
+        "titre": "Le résultat",
+        "paragraphes": [
+          "Décrivez ce qui a été livré et ce que vous avez appris."
+        ]
+      }
+    ],
+    "images": [
+      {
+        "src": "assets/images/projets/nom-du-projet-03/capture-01.jpg",
+        "alt": "Capture du projet 03",
+        "legende": "Vue d'ensemble"
+      }
+    ]
+  },
+  {
+    "id": "nom-du-projet-04",
+    "nom": "Nom du projet 04",
+    "description": "Deux ou trois phrases : le contexte, le problème à résoudre, votre contribution et ce que vous avez appris en le construisant.",
+    "technos": [
+      "Next.js",
+      "Tailwind"
+    ],
+    "role": "[Votre rôle]",
+    "statut": "[En ligne / en cours]",
+    "image": "",
+    "alt": "",
+    "site": "#",
+    "code": "#",
+    "sections": [
+      {
+        "titre": "Le projet",
+        "paragraphes": [
+          "Présentez ici le projet : son contexte, l'idée de départ et l'objectif visé."
+        ]
+      },
+      {
+        "titre": "Ma démarche",
+        "paragraphes": [
+          "Expliquez comment vous vous y êtes pris : choix techniques, organisation, difficultés."
+        ]
+      },
+      {
+        "titre": "Le résultat",
+        "paragraphes": [
+          "Décrivez ce qui a été livré et ce que vous avez appris."
+        ]
+      }
+    ],
+    "images": []
+  },
+  {
+    "id": "nom-du-projet-05",
+    "nom": "Nom du projet 05",
+    "description": "Deux ou trois phrases : le contexte, le problème à résoudre, votre contribution et ce que vous avez appris en le construisant.",
+    "technos": [
+      "PHP",
+      "MySQL"
+    ],
+    "role": "[Votre rôle]",
+    "statut": "[En ligne / en cours]",
+    "image": "",
+    "alt": "",
+    "site": "#",
+    "code": "#",
+    "sections": [
+      {
+        "titre": "Le projet",
+        "paragraphes": [
+          "Présentez ici le projet : son contexte, l'idée de départ et l'objectif visé."
+        ]
+      },
+      {
+        "titre": "Ma démarche",
+        "paragraphes": [
+          "Expliquez comment vous vous y êtes pris : choix techniques, organisation, difficultés."
+        ]
+      },
+      {
+        "titre": "Le résultat",
+        "paragraphes": [
+          "Décrivez ce qui a été livré et ce que vous avez appris."
+        ]
+      }
+    ],
+    "images": [
+      {
+        "src": "assets/images/projets/nom-du-projet-05/capture-01.jpg",
+        "alt": "Capture 1 du projet 05",
+        "legende": "Capture 1"
+      },
+      {
+        "src": "assets/images/projets/nom-du-projet-05/capture-02.jpg",
+        "alt": "Capture 2 du projet 05",
+        "legende": "Capture 2"
+      }
+    ]
+  },
+  {
+    "id": "nom-du-projet-06",
+    "nom": "Nom du projet 06",
+    "description": "Deux ou trois phrases : le contexte, le problème à résoudre, votre contribution et ce que vous avez appris en le construisant.",
+    "technos": [
+      "TypeScript",
+      "Express"
+    ],
+    "role": "[Votre rôle]",
+    "statut": "[En ligne / en cours]",
+    "image": "",
+    "alt": "",
+    "site": "#",
+    "code": "#",
+    "sections": [
+      {
+        "titre": "Le projet",
+        "paragraphes": [
+          "Présentez ici le projet : son contexte, l'idée de départ et l'objectif visé."
+        ]
+      },
+      {
+        "titre": "Ma démarche",
+        "paragraphes": [
+          "Expliquez comment vous vous y êtes pris : choix techniques, organisation, difficultés."
+        ]
+      },
+      {
+        "titre": "Le résultat",
+        "paragraphes": [
+          "Décrivez ce qui a été livré et ce que vous avez appris."
+        ]
+      }
+    ],
+    "images": [
+      {
+        "src": "assets/images/projets/nom-du-projet-06/capture-01.jpg",
+        "alt": "Capture du projet 06",
+        "legende": "Vue d'ensemble"
+      }
+    ]
+  }
+]
