@@ -11,7 +11,7 @@ const actif = ref(0)
   <section id="projets" class="projets">
     <div class="section-entete panneau-verre">
       <h2>Mes projets</h2>
-      <p>Choisissez un onglet pour découvrir n projet.</p>
+      <p>Choisissez un onglet pour découvrir un projet.</p>
     </div>
 
     <div class="projets-fenetre panneau-verre">

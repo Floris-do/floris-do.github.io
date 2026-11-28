@@ -1,0 +1,238 @@
+<script setup>
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
+import logo from '@/assets/images/logo.svg'
+import iconeMenu from '@/assets/icons/menu.svg'
+import iconeFermer from '@/assets/icons/close.svg'
+
+const route = useRoute()
+const header = ref(null)
+const ouvert = ref(false)
+
+const icone = computed(() => (ouvert.value ? iconeFermer : iconeMenu))
+
+// Ferme le menu quand on clique en dehors du header
+function fermerSiCLicExterieur(event) {
+  if (ouvert.value && !header.value.contains(event.target)) {
+    ouvert.value = false
+  }
+}
+
+// Ferme le menu après un changement de page ou d'ancre
+watch(
+  () => route.fullPath,
+  () => {
+    ouvert.value = false
+  },
+)
+
+onMounted(() => document.addEventListener('click', fermerSiCLicExterieur))
+onUnmounted(() => document.removeEventListener('click', fermerSiCLicExterieur))
+</script>
+
+<template>
+  <header ref="header" :class="{ open : ouvert }">
+    <div class="header-content">
+      <RouterLink to="/" class="logo">
+        <img :src="logo" alt="Portfolio de Floris Doreau" />
+      </RouterLink>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        :aria-expanded="ouvert"
+        aria-controls="menu"
+        @click="ouvert = !ouvert"
+      >
+        Menu <img class="icone" :src="icone" alt="" />
+      </button>
+
+      <nav id="menu">
+        <RouterLink to="/#projets">Découvrir mes projets</RouterLink>
+        <RouterLink to="/#presentation">À propos de moi</RouterLink>
+        <div class="separation"></div>
+        <RouterLink to="/#contact">Contact</RouterLink>
+      </nav>
+    </div>
+  </header>
+</template>
+
+<style scoped>
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000;
+
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+
+  border: 1px solid var(--glass-border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-l) var(--radius-l);
+
+  box-shadow: var(--shadow-panel);
+}
+
+/* Si backdrop-filter n'est pas supporté */
+@supports not (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  header {
+    background: var(--glass-bg-fallback);
+  }
+}
+
+.header-content {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: var(--space-3) var(--space-5);
+  gap: var(--space-3);
+  height: fit-content;
+}
+
+.logo {
+  all: unset;
+  cursor: pointer;
+
+  & > img {
+    height: 35px;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: var(--space-5);
+
+  & > a {
+    color: var(--teal-dark);
+    text-decoration: none;
+  }
+
+  /*Bouton CTA*/
+  & a:first-of-type {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    z-index: 0;
+
+    font-size: var(--text-size-s);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-l);
+    border: 2px solid var(--teal-dark);
+    transition: color 0.7s;
+  }
+  & a:first-of-type::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 100%;
+    left: 100%;
+    width: 250px;
+    height: 150px;
+    background: var(--teal-dark);
+    border-radius: 50%;
+    transition: all 0.7s;
+  }
+  & a:first-of-type:hover {
+    color: var(--mint);
+  }
+  & a:first-of-type:hover::before {
+    top: -30px;
+    left: -30px;
+  }
+
+  /*Liens de navigation*/
+  & a:nth-of-type(2),
+  & a:nth-of-type(3) {
+    position: relative;
+    display: inline-block;
+  }
+  & a:nth-of-type(2)::after,
+  & a:nth-of-type(3)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1.5px;
+    background: currentColor;
+    border-radius: 2px;
+
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s ease;
+    pointer-events: none;
+  }
+  & a:nth-of-type(2):hover::after,
+  & a:nth-of-type(3):hover::after,
+  & a:nth-of-type(2):focus-visible::after,
+  & a:nth-of-type(3):focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .separation {
+    background: var(--teal-dark);
+    width: 1px;
+    height: 20px;
+  }
+}
+
+/* Menu burger */
+.menu-toggle {
+  display: none;
+}
+
+/* Vue tablette et mobile */
+@media (max-width: 768px) {
+  .header-content {
+    flex-wrap: wrap;
+    top: 6px;
+  }
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: none;
+    border: none;
+    font-family: var(--font-text);
+    font-size: var(--text-size-l);
+    color: var(--teal-dark);
+    cursor: pointer;
+  }
+  #menu {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: var(--space-5);
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    visibility: hidden;
+    transition:
+      max-height 1s ease,
+      padding 1s ease,
+      visibility 0s linear 1s;
+  }
+  header.open #menu {
+    max-height: 250px;
+    padding: var(--space-3) 0;
+    visibility: visible;
+    transition:
+      max-height 1s ease,
+      padding 1s ease,
+      visibility 0s;
+  }
+  #menu .separation {
+    display: none;
+  }
+}
+</style>
